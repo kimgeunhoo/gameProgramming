@@ -7,6 +7,7 @@
 // 환경 설정
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -35,17 +36,19 @@ int main()
 	printf("실수 출력 : %0.2f\n", float1);
 	printf("문자열 출력 : %s\n", "몬스터");
 	
-	float valsuc = 90;
-	float valfal = 10;
+	double valsuc = 90;
+	double valfal = 10;
+	printf("실수 출력 : %lf\n", valsuc);
 
 	// 강화시스템 스토리
 	printf("%s이 %s를 처치하고 단석을 획득하였습니다.\n", player, enemy);
 	printf("단석으로 롱소드를 롱소드 +1로 강화 할 수 있습니다.\n");
 	// 아이템 이름 현재 레벨 강화 확률
-	printf("강화 성공확률: %f %, 실패확률 : %f %\n", valsuc, valfal);
+	printf("강화 성공확률 : %lf % 실패확률 : %lf % \n", valsuc, valfal);
 	printf("강화를 시도하겠습니까? 1=네 0=아니오\n");
 	// 강화 시도
-	int scanf(int upgrade);
+	int upgrade = 0;
+	scanf("%d", &upgrade);
 	if (upgrade == 1) {
 		int random = 0;
 		random = rand() % 9 + 1;
