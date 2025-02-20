@@ -132,21 +132,57 @@ int main()
 	// Slot 최대 갯수 : 변수
 	// Stack 최대 갯수 : 변수
 	int itemSlot = 10;
-	int itemStack = 5;
+	int itemAStack = 1;
+	int itemBStack = 10;
 
-	// A 아이템을 N개 획득
-	itemStack = itemStack + 1;
+	// A 아이템을 N개 획득, B 아이템 m개 획득
+	itemAStack = itemAStack + 6;
+	itemBStack = itemBStack + 6;
 	// 현재 인벤토리의 갯수가 가득 찼는지 안찼는지 표현하는 결과를 표현해보세요
 	printf("아이템 인벤토리의 용량 : %d\n", itemSlot);
-	printf("아이템 A의 갯수 : %d\n", itemStack);
-	printf("아이템 인벤토리 상태 : %s\n", (itemSlot <= itemStack) ? "용량이 꽉 찼습니다" : "용량이 여유롭습니다.");
-
-	itemStack = itemStack + 2;
+	printf("아이템 A의 갯수 : %d\n", itemAStack);
+	printf("아이템 B의 갯수 : %d\n", itemBStack);
+	printf("아이템 인벤토리 상태 : %s\n", (itemSlot <= itemAStack) ? "용량이 꽉 찼습니다" : "용량이 여유롭습니다.");
+	printf("아이템 인벤토리 상태 : %s\n", (itemSlot <= itemBStack) ? "용량이 꽉 찼습니다" : "용량이 여유롭습니다.");
 	// 현재 인벤토리의 갯수가 가득 찼는지 안찼는지 표현하는 결과를 표현해보세요
-
+	
 	// 3항 연산자로
 
-	// 게임 스토리3 작성
+	// 강사님의 예시
+	int basePower = 10;
+	int weaponLv = 1;
+	int weight = 2;
 
+	int attackPower = basePower + weaponLv * weight;
+
+	printf("무기 레벨 : %d, 무기의 공격력 : %d\n", ++weaponLv, attackPower);
+	attackPower = basePower + weaponLv * weight;
+	printf("무기 레벨 : %d, 무기의 공격력 : %d\n", weaponLv++, attackPower);
+
+	// 인벤토리 예시
+	int maxInventorySlot = 10;
+	int AStackCount = 200;
+	int BStackCount = 200;
+	int ADrop = 555;
+	int BDrop = 666;
+
+	printf("1시간 동안 사냥을 해서 아이템 획득\n");
+	printf("A : %d, B : %d 획득.\n",ADrop, BDrop);
+
+	// 400, 
+
+	int AInventoryCount = (ADrop % AStackCount == 0 ? (ADrop / AStackCount) : (ADrop / AStackCount) + 1);
+	int BInventoryCount = (BDrop % BStackCount == 0 ? (BDrop / BStackCount) : (BDrop / BStackCount) + 1);
+
+
+	printf(" A의 갯수 : %d , B의 갯수 : %d\n", AInventoryCount, BInventoryCount);
+
+	printf(" %s", maxInventorySlot <= (AInventoryCount + BInventoryCount) ? "가득 참" : "널널함");
+
+
+	// 게임 스토리3 작성
+	// 재료 파밍후 재료 개수가 10개를 넘어가면 새 아이템 칸에 아이템이 등록된다. Array 쓰는게 좋을듯
+
+	
 
 }
