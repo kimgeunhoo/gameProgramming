@@ -57,11 +57,10 @@ int main()
 	}
 
 	// 게임 스토리를 입혀 표현
-	srand(time(NULL));
-	int num = rand()%100;
-	int ans = 0;
+	
 	for (;;) {
-
+		srand(time(NULL));
+		int num = rand() % 100;
 		// 무기 강화 step
 
 		// 무기의 이름
@@ -79,6 +78,7 @@ int main()
 		printf("강화를 진행하겠습니까?(Y/N) 강화 성공 확률 : 90%\n");
 		char check = ' ';
 		scanf_s("%c", &check, 1);
+		while (getchar() != '\n'); // 문자열 설명 후 해당 내용 재설명
 
 		if (check == 'Y') {
 			// 강화를 진행한다.
