@@ -107,4 +107,9 @@ void AdvancedWeaponUpgrade()
 		// 강화를 그만둔다.
 		printf("강화를 그만둡니다..\n");
 	}
+	else {
+		printf("잘못된 입력값입니다...\n");
+		CurrentMoney = CurrentMoney + 500;
+		ShowInfo();
+	}
 }

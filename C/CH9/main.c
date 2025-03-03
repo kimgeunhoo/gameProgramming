@@ -22,7 +22,7 @@ int CurrentMoney = 1000;
 
 void ShowInfo() 
 {
-	printf("캐릭터의 클래스 %s\n", "기사");
+	printf("캐릭터의 클래스 : %s\n", "기사");
 	printf("현재 가진 돈 : %d\n", CurrentMoney);
 
 	WaitInputAnyKey();
