@@ -1,5 +1,11 @@
 #include "EnforceWeapon.h"
 
+int weaponLV = 0;
+int normalLV = 1;
+int advancedLV = 0;
+
+int baseAP = 10;
+int currentAP = 0;
 
 void ShowMenu() {
 	printf("1_ 강화한다\n");
@@ -45,12 +51,21 @@ void Upgrade()
 {
 	// CurrentLevel = CurrentLevel + 1;
 	// CurrentLevel += 1;
+	int weight = 5;
+
+	normalLV = normalLV + 1;
+	currentAP = currentAP + baseAP + weight * weaponLV;
+
+	weaponLV = normalLV + advancedLV;
+	printf("현재 무기 레벨 : %d, 현재 무기 공격력 : %d\n", weaponLV, currentAP);
+
 	CurrentLevel++;
+
 }
 
 void ShowStatus()
 {
-
+	printf("현재 무기 레벨 : %d, 현재 무기 공격력 : %d\n", weaponLV, currentAP);
 }
 
 // 현재 무기 레벨 == 최대 레벨

@@ -19,6 +19,7 @@ void ShowMenu();
 void Upgrade();
 void ShowStatus();
 
+
 // 게임의 종료 조건
 // 목표를 달성했는가? - success 성공
 
