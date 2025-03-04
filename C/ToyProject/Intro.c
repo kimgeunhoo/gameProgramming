@@ -20,6 +20,7 @@ void IntroMenu()
 		// 비교 연산자 '==' - 조건문을 함께 사용
 		if (inputNumber == 1) 
 		{
+			// 업그레이드 비용 지불
 			// 게임 시작
 			GameLoop();
 		}

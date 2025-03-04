@@ -6,11 +6,14 @@
 #include <stdio.h> // 입출력 함수 포함하는 헤더
 #include <stdbool.h> // bool type 추가
 #include <conio.h> // _getch() 입력 버퍼 없이 입출력 함수를 포함하는 헤더
-#include <time.h> // time() 시드값을 시간으로 넣기위한 함수
-#include <stdlib.h> // rand() 사용을 위한 헤더
 #include <Windows.h> // system("cls") 윈도우 콘솔 함수 포함된 헤더
 
+//#include <time.h> // time() 시드값을 시간으로 넣기위한 함수
+//#include <stdlib.h> // rand() 사용을 위한 헤더
+#include "Random.h"	// 업그레이드 강화를 위한 사용자 지정 헤더
 // extern : 외부의 CurrentMney 이름이 같은 변수가 있으니 그것을 사용.
+#include "Currency.h" // 코스트 사용 함수를 위한 사용자 지정 헤더
+
 
 void ShowMenu();
 

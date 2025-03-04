@@ -3,9 +3,12 @@
 // 강화 게임에 필요한 전역 변수들
 // 게임 목표
 
-int CurrentLevel = 8;
+int CurrentLevel = 0;
 int TargetLevel = 10;
 
+// 방해요인 : 재화
+int CurrentMoney = 10000;
+int Upgradecost = 500;
 bool isClear = false;
 bool isFail = false;
 
