@@ -57,6 +57,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MazeEscape", "MazeEscape", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeEscape", "..\MazeEscape\MazeEscape.vcxproj", "{B54EDEE9-7078-4330-958A-2DF8C538EA7A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleFunc", "ConsoleFunc", "{B99F2E48-8418-4930-87AC-308AAFFF197B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleFunc", "..\ConsoleFunc\ConsoleFunc.vcxproj", "{EAA27778-B745-48A3-9512-E2FE8F51257C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -177,6 +181,14 @@ Global
 		{B54EDEE9-7078-4330-958A-2DF8C538EA7A}.Release|x64.Build.0 = Release|x64
 		{B54EDEE9-7078-4330-958A-2DF8C538EA7A}.Release|x86.ActiveCfg = Release|Win32
 		{B54EDEE9-7078-4330-958A-2DF8C538EA7A}.Release|x86.Build.0 = Release|Win32
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Debug|x64.ActiveCfg = Debug|x64
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Debug|x64.Build.0 = Debug|x64
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Debug|x86.ActiveCfg = Debug|Win32
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Debug|x86.Build.0 = Debug|Win32
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Release|x64.ActiveCfg = Release|x64
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Release|x64.Build.0 = Release|x64
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Release|x86.ActiveCfg = Release|Win32
+		{EAA27778-B745-48A3-9512-E2FE8F51257C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +207,7 @@ Global
 		{04971137-51C2-46B3-9E82-B0512CFC0403} = {673B64E2-C85D-4764-B6B3-2A85608A2796}
 		{7E11EC2A-63D1-4F2B-BDCD-A38B6D48777A} = {11649812-D115-46F4-A11E-3BEAAA8FC5D0}
 		{B54EDEE9-7078-4330-958A-2DF8C538EA7A} = {843DB51D-9389-4B3B-AEAE-07FAA76A67B1}
+		{EAA27778-B745-48A3-9512-E2FE8F51257C} = {B99F2E48-8418-4930-87AC-308AAFFF197B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2CDCC58-D87F-46C6-8195-B4A24CF2877D}

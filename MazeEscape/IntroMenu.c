@@ -1,9 +1,11 @@
 #include "IntroMenu.h"
 #include "coordinate.h"
 #include "borderMenu.h"
+#include "stage.h"
 
 void IntroMenu()
 {
+	system("cls");
 	setCursorVisible(true);
 	ShowBorder();
 	setCursorPos(32, 18);
@@ -57,8 +59,7 @@ void IntroMenu()
 
 		}
 		if (playerY == 18 && GetAsyncKeyState(VK_SPACE)) {
-			printf("게임 시작!");
-			break;
+			stage1();			
 		}
 		if (playerY == 19 && GetAsyncKeyState(VK_SPACE)) {
 			break;

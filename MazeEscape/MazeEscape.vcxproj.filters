@@ -27,6 +27,12 @@
     <ClCompile Include="coordinate.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="stage.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="borderMenu.h">
@@ -36,6 +42,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="coordinate.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

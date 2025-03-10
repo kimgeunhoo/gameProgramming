@@ -1,2 +1,6 @@
-﻿menu.obj : error LNK2019: UpgradeSelectMenu 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\Users\bungj\Desktop\gameprogramming\C\CStudy\x64\Debug\CH8.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  main.c
+  menu.c
+  WeaponUpgrade.c
+  코드를 생성하고 있습니다...
+menu.obj : error LNK2019: UpgradeSelectMenu 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\Administrator\Desktop\gameProgramming\C\CStudy\x64\Debug\CH8.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
