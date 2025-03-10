@@ -2,6 +2,7 @@
 #include "coordinate.h"
 #include "borderMenu.h"
 #include "stage.h"
+#include "GameOver.h"
 
 void IntroMenu()
 {
@@ -58,10 +59,25 @@ void IntroMenu()
 
 
 		}
-		if (playerY == 18 && GetAsyncKeyState(VK_SPACE)) {
-			stage1();			
+		if (playerY == 18 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
+			stage1();
+			if (GameVal == 0) {
+				system("cls");
+				setCursorVisible(true);
+				ShowBorder();
+				setCursorPos(32, 18);
+				printf("1_ 게임 시작\n");
+				setCursorPos(32, 19);
+				printf("2_ 게임 종료\n");
+
+				// UI 텍스트
+				int playerX = 44;
+				int playerY = 18;
+
+				setCursorPos(playerX, playerY);
+			}
 		}
-		if (playerY == 19 && GetAsyncKeyState(VK_SPACE)) {
+		if (playerY == 19 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
 			break;
 		}
 		

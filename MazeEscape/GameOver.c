@@ -15,7 +15,6 @@ void GameOver() {
 	// UI ≈ÿΩ∫∆Æ
 	int playerX = 44;
 	int playerY = 18;
-	int GameVal = -1;
 
 	setCursorPos(playerX, playerY);
 	while (true)
@@ -58,13 +57,12 @@ void GameOver() {
 
 
 		}
-		if (playerY == 18 && GetAsyncKeyState(VK_SPACE)) {
-			return GameVal = 1;
-			break;
-		}
-		if (playerY == 19 && GetAsyncKeyState(VK_SPACE)) {
-			return GameVal = 0;
-			break;
+		if (playerY == 18 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
+			GameVal = 1;
+			return;
+		} else if (playerY == 20 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
+			GameVal = 0;
+			return;
 		}
 
 	}

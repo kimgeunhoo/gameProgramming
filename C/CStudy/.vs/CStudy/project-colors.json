@@ -55,7 +55,17 @@
       "ProjectGuid": "b54edee9-7078-4330-958a-2df8c538ea7a",
       "DisplayName": "MazeEscape",
       "ColorIndex": 9
+    },
+    "eaa27778-b745-48a3-9512-e2fe8f51257c": {
+      "ProjectGuid": "eaa27778-b745-48a3-9512-e2fe8f51257c",
+      "DisplayName": "ConsoleFunc",
+      "ColorIndex": 10
+    },
+    "03d3a4d3-0243-49cb-b106-188c4486bd44": {
+      "ProjectGuid": "03d3a4d3-0243-49cb-b106-188c4486bd44",
+      "DisplayName": "CH5",
+      "ColorIndex": 11
     }
   },
-  "NextColorIndex": 10
+  "NextColorIndex": 12
 }

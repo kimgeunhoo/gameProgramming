@@ -3,7 +3,7 @@
 #include "coordinate.h"
 #include "GameOver.h"
 
-extern int GameVal;
+bool GameVal = -1;
 
 void stage1()
 {
@@ -15,8 +15,10 @@ void stage1()
 	// UI 텍스트
 	setCursorPos(playerX, playerY);
 	printf("♥");
-	while (1)
+	while (true)
 	{
+
+
 		if (_kbhit())
 		{
 			setCursorPos(playerX, playerY);
@@ -54,16 +56,7 @@ void stage1()
 					playerX = 76;
 				}
 			}
-
-			if (playerX >= 20 && playerX <= 30 && playerY == 19) {
-				GameOver();
-				if (GameVal = 1) {
-					continue;
-				} else if (GameVal = 0) {
-					break;
-				}
-			}
-			
+	
 			else
 			{
 				// 그 자리 그대로
@@ -74,6 +67,23 @@ void stage1()
 		setCursorPos(playerX, playerY);
 		printf("♥");
 		Sleep(50);
+
+		if (playerX >= 20 && playerX <= 30 && playerY == 19) {
+			GameOver();
+			if (GameVal == 1) {
+				playerX = 2;
+				playerY = 21;
+				system("cls");
+				StageBorder1();
+				setCursorVisible(false);
+				setCursorPos(playerX, playerY);
+			}
+			else if (GameVal == 0) {
+				system("cls");
+				Sleep(50);
+				break;
+			}
+		}
 	}
 }
 

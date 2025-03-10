@@ -1,9 +1,3 @@
-﻿  GameOver.c
-C:\Users\Administrator\Desktop\gameProgramming\MazeEscape\GameOver.c(8,2): warning C4013: 'GameOverBorder'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\Administrator\Desktop\gameProgramming\MazeEscape\GameOver.c(62,22): warning C4098: 'GameOver': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\Administrator\Desktop\gameProgramming\MazeEscape\GameOver.c(66,22): warning C4098: 'GameOver': 'void' 함수에서 값을 반환하고 있습니다.
-  stage.c
-C:\Users\Administrator\Desktop\gameProgramming\MazeEscape\stage.c(12,2): warning C4013: 'StageBorder1'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-  코드를 생성하고 있습니다...
-stage.obj : error LNK2001: 확인할 수 없는 외부 기호 GameVal
-C:\Users\Administrator\Desktop\gameProgramming\MazeEscape\x64\Debug\MazeEscape.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  stage.c
+C:\Users\bungj\Desktop\gameprogramming\MazeEscape\stage.c(12,14): warning C4013: 'StageBorder1'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  MazeEscape.vcxproj -> C:\Users\bungj\Desktop\gameprogramming\MazeEscape\x64\Debug\MazeEscape.exe
