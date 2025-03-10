@@ -40,7 +40,22 @@
       "ProjectGuid": "a908e4a1-2a32-4d0c-9520-d664d30d7a66",
       "DisplayName": "CH10",
       "ColorIndex": 6
+    },
+    "7e11ec2a-63d1-4f2b-bdcd-a38b6d48777a": {
+      "ProjectGuid": "7e11ec2a-63d1-4f2b-bdcd-a38b6d48777a",
+      "DisplayName": "MoveInConsole",
+      "ColorIndex": 7
+    },
+    "04971137-51c2-46b3-9e82-b0512cfc0403": {
+      "ProjectGuid": "04971137-51c2-46b3-9e82-b0512cfc0403",
+      "DisplayName": "ToyProject",
+      "ColorIndex": 8
+    },
+    "b54edee9-7078-4330-958a-2df8c538ea7a": {
+      "ProjectGuid": "b54edee9-7078-4330-958a-2df8c538ea7a",
+      "DisplayName": "MazeEscape",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 10
 }
