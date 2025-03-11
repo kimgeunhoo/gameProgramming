@@ -1,5 +1,8 @@
 #include "borderMenu.h"
 
+#define WIDTH 84
+#define HEIGHT 19
+
 void ShowBorder()
 {
 	printf("¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á\n");
@@ -26,6 +29,7 @@ void ShowBorder()
 	printf("¡á                                                                            ¡á\n");
 	printf("¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á\n");
 }
+
 
 void StageBorder1()
 {

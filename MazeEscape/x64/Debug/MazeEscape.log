@@ -1,3 +1,2 @@
 ﻿  stage.c
-C:\Users\bungj\Desktop\gameprogramming\MazeEscape\stage.c(12,14): warning C4013: 'StageBorder1'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   MazeEscape.vcxproj -> C:\Users\bungj\Desktop\gameprogramming\MazeEscape\x64\Debug\MazeEscape.exe
