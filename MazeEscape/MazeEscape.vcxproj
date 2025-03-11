@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="borderMenu.c" />
+    <ClCompile Include="Clear.c" />
     <ClCompile Include="coordinate.c" />
     <ClCompile Include="GameOver.c" />
     <ClCompile Include="IntroMenu.c" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="borderMenu.h" />
+    <ClInclude Include="Clear.h" />
     <ClInclude Include="coordinate.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="IntroMenu.h" />

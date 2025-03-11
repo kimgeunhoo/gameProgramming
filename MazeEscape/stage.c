@@ -152,6 +152,8 @@ void stage1()
 		}
 		if (playerX == 74 && playerY == 13) {
 			GameVal =  0;
+			
+
 			break;
 		}
 
