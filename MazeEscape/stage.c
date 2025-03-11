@@ -95,6 +95,15 @@ void stage1()
 				if (playerY <= 0) {
 					playerY = 1;
 				}
+				if (playerX >= 2 &&playerY <= 11) {
+					playerY = 12;
+				}
+				if (playerX >= 42 && playerY >= 17) {
+					playerY = 21;
+				}
+				if (playerX >= 2 && playerX <= 38 && playerY >= 17) {
+					playerY = 21;
+				}
 			}
 
 			if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
@@ -102,6 +111,9 @@ void stage1()
 				playerY += 1;
 				if (playerY >= 22) {
 					playerY = 21;
+				}
+				if (playerX >= 2 && playerY >= 21) {
+					playerY = 19;
 				}
 			}
 
@@ -111,13 +123,18 @@ void stage1()
 				if (playerX <= 0) {
 					playerX = 2;
 				}
+				
 			}
 
 			if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
 			{
+
 				playerX += 2;
 				if (playerX >= 78) {
 					playerX = 76;
+				}
+				if (playerX >= 42 && playerY <= 20 && playerY >= 14) {
+					playerY = 21;
 				}
 			}
 	
@@ -150,11 +167,92 @@ void stage1()
 				break;
 			}
 		}
+		if (playerX >= 4 && playerX <= 40 && playerY == 16) {
+			GameOver();
+			if (GameVal == 1) {
+				playerX = 2;
+				playerY = 21;
+				system("cls");
+				StageBorder1();
+				setCursorVisible(false);
+				setCursorPos(playerX, playerY);
+			}
+			else if (GameVal == 0) {
+				system("cls");
+				Sleep(50);
+				break;
+			}
+		}
+		if (playerX >= 28 && playerX <= 38 && playerY == 13) {
+			GameOver();
+			if (GameVal == 1) {
+				playerX = 2;
+				playerY = 21;
+				system("cls");
+				StageBorder1();
+				setCursorVisible(false);
+				setCursorPos(playerX, playerY);
+			}
+			else if (GameVal == 0) {
+				system("cls");
+				Sleep(50);
+				break;
+			}
+		}
+		if (playerX >= 2 && playerX <= 24 && playerY == 12) {
+			GameOver();
+			if (GameVal == 1) {
+				playerX = 2;
+				playerY = 21;
+				system("cls");
+				StageBorder1();
+				setCursorVisible(false);
+				setCursorPos(playerX, playerY);
+			}
+			else if (GameVal == 0) {
+				system("cls");
+				Sleep(50);
+				break;
+			}
+		}
+		if (playerX >= 42 && playerX <= 64 && playerY == 12) {
+			GameOver();
+			if (GameVal == 1) {
+				playerX = 2;
+				playerY = 21;
+				system("cls");
+				StageBorder1();
+				setCursorVisible(false);
+				setCursorPos(playerX, playerY);
+			}
+			else if (GameVal == 0) {
+				system("cls");
+				Sleep(50);
+				break;
+			}
+		}
 		if (playerX == 74 && playerY == 13) {
-			GameVal =  0;
-			
+			Clear();
+			if (GameVal == 1) {
+				system("cls");
+				Sleep(50);
+				// 왜 안되는지 몰라서 응급처치
+				setCursorVisible(true);
+				ShowBorder();
+				setCursorPos(32, 18);
+				printf("1_ 게임 시작\n");
+				setCursorPos(32, 19);
+				printf("2_ 게임 종료\n");
 
-			break;
+				// UI 텍스트
+				int playerX = 44;
+				int playerY = 18;
+
+				setCursorPos(playerX, playerY);
+				break;
+			} else if (GameVal == 0) {
+				exit(0);
+			}
 		}
 
 		// Wall

@@ -1,5 +1,6 @@
 #include "Clear.h"
 #include "coordinate.h"
+#include "GameOver.h"
 
 
 void Clear() {
@@ -12,7 +13,6 @@ void Clear() {
 	printf("2_ 게임 종료\n");
 	int playerX = 44;
 	int playerY = 18;
-
 	while (true)
 	{
 		if (_kbhit())
@@ -54,10 +54,12 @@ void Clear() {
 
 		}
 		if (playerY == 18 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
-			break;
+			GameVal = 1;
+			return;
 		}
 		if (playerY == 19 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
-			break;
+			GameVal = 0;
+			return;
 		}
 
 	}
