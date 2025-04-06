@@ -2,6 +2,6 @@
 #include "borderMenu.h"
 #include "coordinate.h"
 
-extern bool GameVal;
+extern int GameVal;
 
 void GameOver();

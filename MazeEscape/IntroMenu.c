@@ -59,7 +59,7 @@ void IntroMenu()
 
 
 		}
-		if (playerY == 18 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
+		if (playerY == 18 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
 			stage1();
 			if (GameVal == 0) {
 				system("cls");
@@ -77,7 +77,7 @@ void IntroMenu()
 				setCursorPos(playerX, playerY);
 			}
 		}
-		if (playerY == 19 && GetAsyncKeyState(VK_SPACE) & 0x8000) {
+		if (playerY == 19 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
 			break;
 		}
 		
@@ -92,3 +92,60 @@ void IntroMenu()
 
 }
 
+void StageMenu() {
+	system("cls");
+	setCursorVisible(true);
+	MenuBorder();
+	int playerX = 20;
+	int playerY = 3;
+	setCursorPos(playerX, playerY);
+	while (true)
+	{
+		if (_kbhit())
+		{
+			setCursorPos(playerX, playerY);
+			// 화살표의 입력을 인식시켜야 함
+
+			if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
+			{
+				playerY -= 2;
+				if (playerY <= 3) {
+					playerY = 3;
+				}
+			}
+
+			if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
+			{
+				playerY += 2;
+				if (playerY >= 9) {
+					playerY = 9;
+				}
+			}
+
+			if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 왼쪽
+			{
+
+				if (playerX <= 19) {
+					playerX = 20;
+				}
+			}
+
+			if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
+			{
+				if (playerX >= 21) {
+					playerX = 20;
+				}
+			}
+
+		}
+		if (playerY == 3 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			stage1();
+		}
+		if (playerY == 5 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			stage2();
+		}
+		if (playerY == 7 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			stage3();
+		}
+	}
+}

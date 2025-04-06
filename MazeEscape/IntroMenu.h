@@ -5,3 +5,4 @@
 #include <time.h>
 
 void IntroMenu();
+void StageMenu();

@@ -3,269 +3,373 @@
 #include "coordinate.h"
 #include "GameOver.h"
 
-bool GameVal = -1;
-
-#define WIDTH 42  // 맵 가로 크기
-#define HEIGHT 20 // 맵 세로 크기
-
-int stageMap[48][23] =//[세로][가로] [cy][cx] 
-{
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,0,0,0,0,0,0,0,0,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,1,
-	1,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,6,1,0,0,0,0,6,1,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,6,1,0,1,0,0,6,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	1,6,1,0,1,0,0,6,1,0,0,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,
-	1,0,0,0,4,4,4,4,4,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-};
-
-int isWall(int x, int y) {
-	return stageMap[y][x] == 1;  // 벽이면 1 반환
-}
-
-void movePlayer(int* x, int* y, int dx, int dy) {
-	int prevX = *x, prevY = *y;  // 이전 위치 저장
-
-	*x += dx;
-	*y += dy;
-
-	if (isWall(*x, *y)) {  // 벽이면 이전 위치로 되돌림
-		*x = prevX;
-		*y = prevY;
-	}
-}
-
-// 맵 출력 함수
-void printStage() {
-	for (int i = 0; i < HEIGHT; i++) {
-		for (int j = 0; j < WIDTH; j++) {
-			switch (stageMap[i][j]) {
-			case 1: printf("■"); break; // 벽
-			case 2: printf("▼"); break; // 플레이어 시작 위치
-			case 3: printf("★"); break; // 목표
-			case 4: printf("▲"); break; // 장애물
-			case 5: printf("▶"); break; // 문
-			case 6: printf("◀"); break; // 함정
-			default: printf(" "); break; // 빈 공간
-			}
-		}
-		printf("\n");
-	}
-}
+int GameVal = -1;
 
 void stage1()
 {
 	system("cls");
 	setCursorVisible(false);
-	StageBorder1();
-	int playerX = 2;
-	int playerY = 21;
+	//StageBorder1();
+	int startX = 2;
+	int startY = 21;
 	int storeX = 0;
 	int storeY = 0;
-	
-	
+	int mapX = 0;
+
+	printStage();
 	// UI 텍스트
-	setCursorPos(playerX, playerY);
+	setCursorPos(startX, startY);
 	printf("♥");
 	
 	while (true)
 	{
-		
-
 		if (_kbhit())
 		{
-			setCursorPos(playerX, playerY);
-			printf("  ");
-			// 화살표의 입력을 인식시켜야 함
+			if (startY >= 0 && startY < HEIGHT && mapX >= 0 && mapX < WIDTH - 2) {
 
-			if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
-			{
-				playerY -= 1;
-				if (playerY <= 0) {
-					playerY = 1;
+				setCursorPos(startX, startY);
+				printf("  ");
+				if (GetAsyncKeyState(VK_UP) & 0x8000 ||
+					GetAsyncKeyState(VK_DOWN) & 0x8000 ||
+					GetAsyncKeyState(VK_LEFT) & 0x8000 ||
+					GetAsyncKeyState(VK_RIGHT) & 0x8000) 
+				{
+					storeX = startX;
+					storeY = startY;
+
+					if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
+					{
+						startY -= 1;
+						if (startY < 1) {
+							startY = 1;
+						}
+					}
+					if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
+					{
+						startY += 1;
+						if (startY > 21) {
+							startY = 21;
+						}
+					}
+					if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 왼쪽
+					{
+						startX -= 2;
+						if (startX < 2) {
+							startX = 2;
+						}
+					}
+					if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
+					{
+						startX += 2;
+						if (startX > 82) {
+							startX = 80;
+						}
+					}
 				}
-				if (playerX >= 2 &&playerY <= 11) {
-					playerY = 12;
+				if (stageMap[startY][startX / 2] == 1) {
+					startX = storeX;
+					startY = storeY;
 				}
-				if (playerX >= 42 && playerY >= 17) {
-					playerY = 21;
+				if (stageMap[startY][startX / 2] >= 2 && stageMap[startY][startX / 2] <= 5) {
+					GameOver();
+					if (GameVal == 1) {
+						startX = 2;
+						startY = 21;
+						system("cls");
+						printStage();
+						setCursorVisible(false);
+						setCursorPos(startX, startY);
+					}
+					else if (GameVal == 0) {
+						system("cls");
+						Sleep(200);
+						break;
+					}
+					GameVal = -1;
 				}
-				if (playerX >= 2 && playerX <= 38 && playerY >= 17) {
-					playerY = 21;
+				if (stageMap[startY][startX / 2] == 6) {
+					Clear();
+					if (GameVal == 2) {
+						GameVal = -1;
+						stage2();
+						return;
+					} else if (GameVal == 1) {
+						system("cls");
+						Sleep(300);
+						// 왜 안되는지 몰라서 응급처치
+						setCursorVisible(true);
+						ShowBorder();
+						setCursorPos(32, 18);
+						printf("1_ 게임 시작\n");
+						setCursorPos(32, 19);
+						printf("2_ 게임 종료\n");
+
+						// UI 텍스트
+						int playerX = 44;
+						int playerY = 18;
+
+						setCursorPos(playerX, playerY);
+						break;
+					}
+					else if (GameVal == 0) {
+						exit(0);
+					}
+					
 				}
 			}
-
-			if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
-			{
-				playerY += 1;
-				if (playerY >= 22) {
-					playerY = 21;
-				}
-				if (playerX >= 2 && playerY >= 21) {
-					playerY = 19;
-				}
-			}
-
-			if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 왼쪽
-			{
-				playerX -= 2;
-				if (playerX <= 0) {
-					playerX = 2;
-				}
-				
-			}
-
-			if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
-			{
-
-				playerX += 2;
-				if (playerX >= 78) {
-					playerX = 76;
-				}
-				if (playerX >= 42 && playerY <= 20 && playerY >= 14) {
-					playerY = 21;
-				}
-			}
-	
-			else
-			{
-				// 그 자리 그대로
-			}
-		
 
 		}
-		setCursorPos(playerX, playerY);
+		setCursorPos(startX, startY);
 		printf("♥");
-		Sleep(50);
-
-
-		// GameOver 함수
-		if (playerX >= 20 && playerX <= 30 && playerY == 19) {
-			GameOver();
-			if (GameVal == 1) {
-				playerX = 2;
-				playerY = 21;
-				system("cls");
-				StageBorder1();
-				setCursorVisible(false);
-				setCursorPos(playerX, playerY);
-			}
-			else if (GameVal == 0) {
-				system("cls");
-				Sleep(50);
-				break;
-			}
-		}
-		if (playerX >= 4 && playerX <= 40 && playerY == 16) {
-			GameOver();
-			if (GameVal == 1) {
-				playerX = 2;
-				playerY = 21;
-				system("cls");
-				StageBorder1();
-				setCursorVisible(false);
-				setCursorPos(playerX, playerY);
-			}
-			else if (GameVal == 0) {
-				system("cls");
-				Sleep(50);
-				break;
-			}
-		}
-		if (playerX >= 28 && playerX <= 38 && playerY == 13) {
-			GameOver();
-			if (GameVal == 1) {
-				playerX = 2;
-				playerY = 21;
-				system("cls");
-				StageBorder1();
-				setCursorVisible(false);
-				setCursorPos(playerX, playerY);
-			}
-			else if (GameVal == 0) {
-				system("cls");
-				Sleep(50);
-				break;
-			}
-		}
-		if (playerX >= 2 && playerX <= 24 && playerY == 12) {
-			GameOver();
-			if (GameVal == 1) {
-				playerX = 2;
-				playerY = 21;
-				system("cls");
-				StageBorder1();
-				setCursorVisible(false);
-				setCursorPos(playerX, playerY);
-			}
-			else if (GameVal == 0) {
-				system("cls");
-				Sleep(50);
-				break;
-			}
-		}
-		if (playerX >= 42 && playerX <= 64 && playerY == 12) {
-			GameOver();
-			if (GameVal == 1) {
-				playerX = 2;
-				playerY = 21;
-				system("cls");
-				StageBorder1();
-				setCursorVisible(false);
-				setCursorPos(playerX, playerY);
-			}
-			else if (GameVal == 0) {
-				system("cls");
-				Sleep(50);
-				break;
-			}
-		}
-		if (playerX == 74 && playerY == 13) {
-			Clear();
-			if (GameVal == 1) {
-				system("cls");
-				Sleep(50);
-				// 왜 안되는지 몰라서 응급처치
-				setCursorVisible(true);
-				ShowBorder();
-				setCursorPos(32, 18);
-				printf("1_ 게임 시작\n");
-				setCursorPos(32, 19);
-				printf("2_ 게임 종료\n");
-
-				// UI 텍스트
-				int playerX = 44;
-				int playerY = 18;
-
-				setCursorPos(playerX, playerY);
-				break;
-			} else if (GameVal == 0) {
-				exit(0);
-			}
-		}
-
-		// Wall
+		Sleep(75);
 		
 	}
+
 }
 
 void stage2()
 {
-	
+	system("cls");
+	setCursorVisible(false);
+	//StageBorder1();
+	int startX = 2;
+	int startY = 1;
+	int storeX = 0;
+	int storeY = 0;
+	int mapX = 0;
+
+	printStage2();
+	// UI 텍스트
+	setCursorPos(startX, startY);
+	printf("♥");
+
+	while (true)
+	{
+		if (_kbhit())
+		{
+			if (startY >= 0 && startY < HEIGHT && mapX >= 0 && mapX < WIDTH - 2) {
+
+				setCursorPos(startX, startY);
+				printf("  ");
+				if (GetAsyncKeyState(VK_UP) & 0x8000 ||
+					GetAsyncKeyState(VK_DOWN) & 0x8000 ||
+					GetAsyncKeyState(VK_LEFT) & 0x8000 ||
+					GetAsyncKeyState(VK_RIGHT) & 0x8000)
+				{
+					storeX = startX;
+					storeY = startY;
+
+					if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
+					{
+						startY -= 1;
+						if (startY < 1) {
+							startY = 1;
+						}
+					}
+					if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
+					{
+						startY += 1;
+						if (startY > 21) {
+							startY = 21;
+						}
+					}
+					if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 왼쪽
+					{
+						startX -= 2;
+						if (startX < 2) {
+							startX = 2;
+						}
+					}
+					if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
+					{
+						startX += 2;
+						if (startX > 82) {
+							startX = 80;
+						}
+					}
+				}
+				if (stageMap2[startY][startX / 2] == 1) {
+					startX = storeX;
+					startY = storeY;
+				}
+				if (stageMap2[startY][startX / 2] >= 2 && stageMap2[startY][startX / 2] <= 5) {
+					GameOver();
+					if (GameVal == 1) {
+						startX = 2;
+						startY = 1;
+						system("cls");
+						printStage2();
+						setCursorVisible(false);
+						setCursorPos(startX, startY);
+					}
+					else if (GameVal == 0) {
+						system("cls");
+						Sleep(200);
+						break;
+					}
+					GameVal = -1;
+				}
+				if (stageMap2[startY][startX / 2] == 6) {
+					Clear();
+					if (GameVal == 2) {
+						system("cls");
+						Sleep(50);
+						GameVal = -1;
+						stage3();
+						return;
+					}
+					else if (GameVal == 1) {
+						system("cls");
+						Sleep(300);
+						// 왜 안되는지 몰라서 응급처치
+						setCursorVisible(true);
+						ShowBorder();
+						setCursorPos(32, 18);
+						printf("1_ 게임 시작\n");
+						setCursorPos(32, 19);
+						printf("2_ 게임 종료\n");
+
+						// UI 텍스트
+						int playerX = 44;
+						int playerY = 18;
+
+						setCursorPos(playerX, playerY);
+						break;
+					}
+					else if (GameVal == 0) {
+						exit(0);
+					}
+
+				}
+			}
+
+		}
+		setCursorPos(startX, startY);
+		printf("♥");
+		Sleep(75);
+
+	}
+
 }
 
 void stage3()
 {
+	system("cls");
+	setCursorVisible(false);
+	//StageBorder1();
+	int startX = 40;
+	int startY = 5;
+	int storeX = 0;
+	int storeY = 0;
+	int mapX = 0;
 
+	printStage3();
+	// UI 텍스트
+	setCursorPos(startX, startY);
+	printf("♥");
+
+	while (true)
+	{
+		if (_kbhit())
+		{
+			if (startY >= 0 && startY < HEIGHT && mapX >= 0 && mapX < WIDTH - 2) {
+
+				setCursorPos(startX, startY);
+				printf("  ");
+				if (GetAsyncKeyState(VK_UP) & 0x8000 ||
+					GetAsyncKeyState(VK_DOWN) & 0x8000 ||
+					GetAsyncKeyState(VK_LEFT) & 0x8000 ||
+					GetAsyncKeyState(VK_RIGHT) & 0x8000)
+				{
+					storeX = startX;
+					storeY = startY;
+
+					if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
+					{
+						startY -= 1;
+						if (startY < 1) {
+							startY = 1;
+						}
+					}
+					if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
+					{
+						startY += 1;
+						if (startY > 21) {
+							startY = 21;
+						}
+					}
+					if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 왼쪽
+					{
+						startX -= 2;
+						if (startX < 2) {
+							startX = 2;
+						}
+					}
+					if (GetAsyncKeyState(VK_RIGHT) & 0x8000) // 오른쪽
+					{
+						startX += 2;
+						if (startX > 82) {
+							startX = 80;
+						}
+					}
+				}
+				if (stageMap3[startY][startX / 2] == 1) {
+					startX = storeX;
+					startY = storeY;
+				}
+				if (stageMap3[startY][startX / 2] >= 2 && stageMap3[startY][startX / 2] <= 5) {
+					GameOver();
+					if (GameVal == 1) {
+						startX = 40;
+						startY = 5;
+						system("cls");
+						printStage3();
+						setCursorVisible(false);
+						setCursorPos(startX, startY);
+					}
+					else if (GameVal == 0) {
+						system("cls");
+						Sleep(200);
+						break;
+					}
+					GameVal = -1;
+				}
+				if (stageMap3[startY][startX / 2] == 6) {
+					Clear();
+					if (GameVal == 2) {
+						system("cls");
+						Sleep(50);
+						GameVal = 1;
+					}
+					else if (GameVal == 1) {
+						system("cls");
+						Sleep(300);
+						// 왜 안되는지 몰라서 응급처치
+						setCursorVisible(true);
+						ShowBorder();
+						setCursorPos(32, 18);
+						printf("1_ 게임 시작\n");
+						setCursorPos(32, 19);
+						printf("2_ 게임 종료\n");
+
+						// UI 텍스트
+						int playerX = 44;
+						int playerY = 18;
+
+						setCursorPos(playerX, playerY);
+						break;
+					}
+					else if (GameVal == 0) {
+						exit(0);
+					}
+
+				}
+			}
+
+		}
+		setCursorPos(startX, startY);
+		printf("♥");
+		Sleep(75);
+
+	}
 }
