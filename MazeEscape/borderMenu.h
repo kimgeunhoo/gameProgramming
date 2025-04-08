@@ -9,6 +9,7 @@ void ShowBorder();
 
 void MenuBorder();
 void ClearBorder();
+void GameOverBorder();
 void printStage();
 void printStage2();
 void printStage3();

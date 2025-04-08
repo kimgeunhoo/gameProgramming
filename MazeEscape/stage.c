@@ -121,7 +121,7 @@ void stage1()
 		}
 		setCursorPos(startX, startY);
 		printf("¢¾");
-		Sleep(75);
+		Sleep(100);
 		
 	}
 
@@ -246,7 +246,7 @@ void stage2()
 		}
 		setCursorPos(startX, startY);
 		printf("¢¾");
-		Sleep(75);
+		Sleep(100);
 
 	}
 
@@ -369,7 +369,7 @@ void stage3()
 		}
 		setCursorPos(startX, startY);
 		printf("¢¾");
-		Sleep(75);
+		Sleep(100);
 
 	}
 }

@@ -72,3 +72,46 @@ void Clear() {
 	}
 }
 
+void FileSave(const char* fileName, CLEAR clear[],int count)
+{
+	FILE* fptr = fopen(fileName, "w");
+
+	for (int i = 0; i < count; i++)
+	{
+		fprintf(fptr, "%d %d\n", clear[i].stageNum, clear[i].clearNum);
+	}
+
+	fclose(fptr);
+}
+
+int LoadFile(const char* fileName, CLEAR clear[])
+{
+	int count = 0;
+
+	FILE* fptr = fopen(fileName, "r");
+
+	while (1) // 파일이 끝날 때 까지 읽어오기
+	{
+		if (fscanf(fptr, "%d %d\n", &clear[count].stageNum, &clear[count].stageNum) == EOF)
+		{
+			break;
+		}
+		count++;
+	}
+
+	fclose(fptr);
+
+	return count;
+}
+
+void PrintClearValue(CLEAR clear[], int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		printf("%d %d\n", clear[count].stageNum, clear[count].stageNum);
+	}
+}
+
+
+
+

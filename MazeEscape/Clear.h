@@ -11,8 +11,11 @@ typedef struct _CLEAR {
 	bool clearNum;
 }CLEAR;
 
+extern int clearVal;
 
 void Clear();
 
-void FileSave();
-int LoadRank();
+void FileSave(const char* fileName, CLEAR clear[], int count);
+int LoadFile(const char* fileName, CLEAR clear[]);
+
+void PrintClearValue(CLEAR clear[], int count);
