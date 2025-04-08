@@ -7,11 +7,12 @@
 
 
 typedef struct _CLEAR {
-	int order;
-	int score;
-	char name[MAXLENGTH];
+	int stageNum;
+	bool clearNum;
 }CLEAR;
 
 
 void Clear();
 
+void FileSave();
+int LoadRank();

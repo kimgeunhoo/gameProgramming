@@ -1,3 +1,4 @@
-﻿  stage.c
-C:\Users\bungj\Desktop\gameprogramming\MazeEscape\stage.c(91,11): warning C4013: 'Clear'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+﻿  Clear.c
+  main.c
+  코드를 생성하고 있습니다...
   MazeEscape.vcxproj -> C:\Users\bungj\Desktop\gameprogramming\MazeEscape\x64\Debug\MazeEscape.exe

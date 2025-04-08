@@ -13,7 +13,8 @@ void IntroMenu()
 	printf("1_ 게임 시작\n");
 	setCursorPos(32, 19);
 	printf("2_ 게임 종료\n");
-
+	setCursorPos(32, 20);
+	printf("3_ 클리어 기록\n");
 	// UI 텍스트
 	int playerX = 44;
 	int playerY = 18;
@@ -25,7 +26,7 @@ void IntroMenu()
 		{
 			setCursorPos(playerX, playerY);
 			// 화살표의 입력을 인식시켜야 함
-
+			Sleep(50);
 			if (GetAsyncKeyState(VK_UP) & 0x8000) // 위
 			{
 				playerY -= 1;
@@ -37,8 +38,8 @@ void IntroMenu()
 			if (GetAsyncKeyState(VK_DOWN) & 0x8000) // 아래
 			{
 				playerY += 1;
-				if (playerY >= 20) {
-					playerY = 19;
+				if (playerY >= 21) {
+					playerY = 20;
 				}
 			}
 
@@ -80,7 +81,9 @@ void IntroMenu()
 		if (playerY == 19 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
 			break;
 		}
-		
+		if (playerY == 20 && GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			break;
+		}
 	}
 
 
